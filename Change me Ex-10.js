@@ -1,30 +1,25 @@
 function changeMe(arr) {
   
-
-    for (let i=0; i<arr.length; i++) {
-        let hasil = {};
-
-        for (let j=0; j<arr[i].length+1; j++) {
-            if (j === 0) {
-                console.log(i+1+'. '+arr[i][j]+' '+arr[i][j+1]+':');
-                hasil.firstName = arr[i][j];
-            } else if (j === 1) {
-                hasil.lastName = arr[i][j];
-            } else if (j === 2 ) {
-                hasil.gender = arr[i][j];
-            } else if (j === 3) {
-                if (arr[i][j] !== undefined) {
-                    hasil.age = 2020 - arr[i][j];
-                } else {
-                    hasil.age = 'Invalid Birth Year';
-                }
-            }
-        }
-
-       console.log(hasil) 
-    }
+  for ( var i = 0; i<arr.length ; i++){
+   var hasil = {
+    firstName : arr[i][0],
+    lastName : arr[i][1],
+    gender : arr[i][2],
+   } 
     
-}
+      if(arr[i][3] > 0){
+        hasil.age = 2000 - arr[i][3]
+      }
+      else{
+        hasil.age = 'Invalid Birth Year'
+      } 
+
+  console.log(`${i+1}. ${hasil.firstName} ${hasil.lastName}`)
+    console.log(hasil)
+  
+  }
+}  
+
 
 
 
