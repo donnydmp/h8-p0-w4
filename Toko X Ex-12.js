@@ -33,13 +33,13 @@ for( var i = 0; i < shoppers.length; i++){
   
   else if ( shoppers[i].product == 'Baju Zoro' && data[1].leftOver >= shoppers[i].amount){
   data[1].leftOver -= shoppers[i].amount
-  data[1].totalProfit += shoppers[i].amount * 500000
+  data[1].totalProfit += shoppers[i].amount * listBarang[1][1]
   data[1].shoppers.push(shoppers[i].name)
   }
   
   else if ( shoppers[i].product == 'Sweater Uniklooh' && data[2].leftOver >= shoppers[i].amount){
   data[2].leftOver -= shoppers[i].amount
-  data[2].totalProfit += shoppers[i].amount * 175000
+  data[2].totalProfit += shoppers[i].amount * listBarang[2][1]
   data[2].shoppers.push(shoppers[i].name)
   }
   }
