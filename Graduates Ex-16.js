@@ -24,9 +24,6 @@ return hasil
 
 }
 
-
-
-
 console.log(graduates([
   {
     name: 'Dimitri',
