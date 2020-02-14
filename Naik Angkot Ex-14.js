@@ -9,8 +9,12 @@ function naikAngkot(arrPenumpang) {
   for( var i = 0; i < arrPenumpang.length ; i++){
    
     for(var j = 0; j < rute.length;j++) {
-        if(rute[j] == arrPenumpang[i][1]) a = j;
-        if(rute[j] == arrPenumpang[i][2]) b = j;
+        if(rute[j] == arrPenumpang[i][1]) {
+          a = j;
+        }
+        if(rute[j] == arrPenumpang[i][2]) {
+          b = j;
+        }
     }
     data[i] = {
     penumpang : arrPenumpang[i][0],
