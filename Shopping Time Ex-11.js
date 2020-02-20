@@ -3,40 +3,29 @@ function shoppingTime(memberId, money) {
     memberId : memberId,
     money : money,
     listPurchased : [],
-    changeMoney : 0
+    changeMoney : money
   }
-
+  
    if (memberId === '' || (memberId === undefined && money === undefined)) {
     return 'Mohon maaf, toko X hanya berlaku untuk member saja';
   } else if (money < 50000) {
     return 'Mohon maaf, uang tidak cukup';
-  } else {
-     if (money >= 1500000) {
-        data.listPurchased.push('Sepatu Stacattu');
-        money -= 1500000;
-      }
-      if (money >= 500000) {
-        data.listPurchased.push('Baju Zoro');
-        money -= 500000;
-      }
-      if (money >= 250000) {
-        data.listPurchased.push('Baju H&N');
-        money -= 250000;
-      
-      }
-      if (money >= 175000) {
-        data.listPurchased.push('Sweater Uniklooh');
-        money -= 175000;
-        
-      }
-      if (money >= 50000) {
-        data.listPurchased.push('Casing Handphone');
-        money -= 50000;
-      
-      }
-      
-  }
-  data.changeMoney = money
+  } 
+  var sale = {
+    'Sepatu Stacattu' : 1500000,
+    'Baju Zoro' : 500000,
+    'Baju H&N' : 250000,
+    'Sweater Uniklooh' : 175000,
+    'Casing Handphone' : 50000
+ }
+    
+    for(var keys in sale){
+        if(data.changeMoney >= sale[keys]){
+            data.changeMoney -= sale[keys]
+            data.listPurchased.push(keys)
+        }
+    }
+     
 return data
 }
 
@@ -60,4 +49,4 @@ console.log(shoppingTime('82Ku8Ma742', 170000));
 // changeMoney: 120000 }
 console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
 console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
-console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
+console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja 

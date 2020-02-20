@@ -23,31 +23,22 @@ function countProfit(shoppers) {
     totalProfit: 0
     }]
 
-for( var i = 0; i < shoppers.length; i++){
-  
-  if ( shoppers[i].product == 'Sepatu Stacattu' && data[0].leftOver >= shoppers[i].amount){
-    data[0].leftOver -= shoppers[i].amount
-    data[0].totalProfit += shoppers[i].amount * listBarang[0][1]
-    data[0].shoppers.push(shoppers[i].name)
+for( var i = 0; i < data.length; i++){
+  for ( var j = 0; j < shoppers.length; j++ ){
+    if ( data[i].product == shoppers[j].product){
+        if ( data[i].leftOver >= shoppers[j].amount){
+          data[i].shoppers.push(shoppers[j].name)
+          data[i].leftOver -= shoppers[j].amount
+          data[i].totalProfit += shoppers[j].amount * listBarang[i][1]
+        }
+    }
   }
-  
-  else if ( shoppers[i].product == 'Baju Zoro' && data[1].leftOver >= shoppers[i].amount){
-  data[1].leftOver -= shoppers[i].amount
-  data[1].totalProfit += shoppers[i].amount * listBarang[1][1]
-  data[1].shoppers.push(shoppers[i].name)
-  }
-  
-  else if ( shoppers[i].product == 'Sweater Uniklooh' && data[2].leftOver >= shoppers[i].amount){
-  data[2].leftOver -= shoppers[i].amount
-  data[2].totalProfit += shoppers[i].amount * listBarang[2][1]
-  data[2].shoppers.push(shoppers[i].name)
-  }
-  }
+}
 
-    // console.log(data)
-  
-  
-
+if(shoppers == 0){
+    return []
+}
+// console.log(data)
 return data  
 }
 
